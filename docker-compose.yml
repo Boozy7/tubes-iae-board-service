@@ -1,0 +1,19 @@
+services:
+  db_board:
+    image: postgres:15
+    container_name: db_board
+    restart: always
+    environment:
+      POSTGRES_USER: admin_board
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: board_db
+    ports:
+      - "5433:5432"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq_board
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
